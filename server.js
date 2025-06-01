@@ -14,6 +14,10 @@ server.listen(PORT, () => {
   console.log(`✅ WebSocket + HTTP server running on port ${PORT}`);
 });
 
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
 async function translateToIndonesia(text) {
   try {
     const response = await axios.post(
