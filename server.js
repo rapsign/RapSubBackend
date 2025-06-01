@@ -1,14 +1,22 @@
-// server.js (Node.js WebSocket server)
-
 require("dotenv").config();
+const express = require("express");
+const http = require("http");
 const WebSocket = require("ws");
 const axios = require("axios");
 const createTranscriber = require("./azureSpeechClient");
 
-const PORT = process.env.PORT || 3000;
-const wss = new WebSocket.Server({ port: PORT });
+const app = express();
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
 
-console.log(`✅ WebSocket server running on ws://localhost:${PORT}`);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`✅ WebSocket + HTTP server running on port ${PORT}`);
+});
+
+app.get("/", (req, res) => {
+  res.send("WebSocket server is running!");
+});
 
 async function translateToIndonesia(text) {
   try {
