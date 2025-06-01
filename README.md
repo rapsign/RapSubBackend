@@ -47,7 +47,7 @@ npm install
 ## ▶️ Menjalankan Server
 
 ```bash
-npm start
+node server.js
 ```
 
 Server akan berjalan di: `ws://localhost:3000`
@@ -71,4 +71,4 @@ MIT License. Silakan digunakan dan dimodifikasi sesuai kebutuhan.
 
 ---
 
-Made with ❤️ by [Your Name or Organization]
+Made with ❤️ by Rinaldi A Prayuda
